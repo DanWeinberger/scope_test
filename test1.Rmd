@@ -1,0 +1,53 @@
+---
+title: "test1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+```
+
+## R Markdown
+
+```{r}
+source('./R/data_wrangling.R')
+source('./R/prev_function.R')
+
+
+```
+
+This is a summary document
+
+```{r}
+test1 <- 1:5
+```
+
+```{r}
+
+
+```
+
+```{r}
+mod1 <- glm()
+summay(mod1)
+```
+
+```{r}
+
+prev <- HCW_negfinal %>%
+  group_by(Ethnicity) %>%
+  mutate('N_people'=n() , 'N_pos'=sum(pos)) %>%
+  summary('prev'=N_pos/N_people)
+
+htmlTable(prev)
+```
+
+```{r}
+
+prev_function(summary_var='Ethnicity')
+
+prev_function(summary_var=c('Ethnicity', 'Agegroup'))
+
+```
